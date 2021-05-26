@@ -1,1 +1,1 @@
-more tests 3
+print('hello world')
