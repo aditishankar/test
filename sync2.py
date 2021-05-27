@@ -15,7 +15,8 @@ at.fetch()
 test.git.pull("at", "master", "--allow-unrelated-histories")
 test.git.add("-A")
 test.index.commit("syncing master")
-at.push()
+origin = test.remote(name='origin')
+origin.push()
 #test.git.push("origin", "test")
 
 
