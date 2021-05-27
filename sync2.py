@@ -1,7 +1,7 @@
 import git, os, shutil
 
 # local version of airflow
-test = git.Repo('')
+test = git.Repo('.')
 # official version of airflow - cloned locally as apache-airflow
 airflow = git.Repo('../apache-airflow')
 fetch = airflow.remotes.origin.fetch()[0]
@@ -14,8 +14,9 @@ at.fetch()
 # at.pull(at.refs[0].remote_head)
 test.git.pull("at", "master", "--allow-unrelated-histories")
 test.git.add("-A")
-test.git.commit("-m", "syncing master")
-test.git.push("origin", "test")
+test.index.commit("syncing master")
+at.push()
+#test.git.push("origin", "test")
 
 
 print("---- DONE ----")
